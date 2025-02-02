@@ -23,6 +23,11 @@ void OLSRegression::fit(std::vector<std::vector<double>> x, std::vector<double> 
 		}
 
 	}
+	this->coefficients = std::vector<double>();
+	for (int i = 0; i < this->weights.size() - 1; i++) {
+		this->coefficients.push_back(weights[i]);
+	}
+	this->intercept = this->weights[this->weights.size() - 1];
 }
 
 std::vector<double> OLSRegression::gradient(std::vector<std::vector<double>> x, std::vector<double> y) {
